@@ -22,7 +22,7 @@ background:#333;
   <body>
     <form method="post">
       <input type="text" id="input" value="">
-      <button type="submit" id="convert">Add Video</button>
+      <button type="submit" id="convert">Add</button>
     </form>
 
     <a id="file" style = "display: none;">Download</a>
@@ -32,14 +32,14 @@ background:#333;
     <script type="text/javascript">
       $("#convert").click(function(){
         $("#file").css("display", "block");
-        setInterval(function() {
+        setTimeout function() {
       
 
 if(document.getElementById("file").hasAttribute("href")){
         document.getElementById("videosrc").src = document.getElementById("file").href;
         
       }
-        }, 0);
+        }, 5000);
         
 
 
