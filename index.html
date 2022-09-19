@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="index.css">
+
+        <meta property="og:title" content="Audio Visualization + Picture-in-Picture">
+         <meta name="theme-color" content="#181818">
+        <meta property="og:description" content="A demo on displaying audio visualization inside a Picture-in-Picture window.">
+        <meta property="og:image" content="https://pip-audio-visualization.arnelle.me/screenshot.jpg">
+        <meta property="og:url" content="https://pip-audio-visualization.arnelle.me/">
+        <meta name="description" content="A demo on displaying audio visualization inside a Picture-in-Picture window.">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <title>Audio Visualization + Picture-in-Picture</title>
+    </head>
+    <style>
+    body{
+      background:#161616;
+      overflow: auto;
+    }
+    *{
+      padding 0px;
+      margin:0px;
+    }
+    #main{
+      width:100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    #back_video{
+      width: 90%;
+      height: auto;
+      background:#303030;
+      box-shadow: 0px 0px 5px 2px #121212;
+      border-radius: 5px;
+      padding:5px;
+      border:1px solid #505050;
+     margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    #cover{
+      width: 100%;
+      height: 510px;
+    max-height: 510px;
+  background:black;
+  outline: none;
+    }
+   
+#cover::-webkit-media-controls-timeline {
+    position:fixed;
+    bottom:-2.5%;
+   width:95%;
+   height:2px;
+   border-radius: 0px;
+}
+video::-webkit-media-controls-seek-back-button{
+  background: red;
+}
+video::-webkit-media-controls-return-to-realtime-button{
+  display: none;
+}
+#cover::-webkit-media-controls-fullscreen-button{
+  display: none;
+}
+#cover::-webkit-media-controls-current-time-display{
+  
+}
+#cover::-webkit-media-controls-mute-button{
+position: fixed;
+top:0%;
+transform: scale(1.3);
+ 
+}
+#cover::-webkit-media-controls-toggle-closed-captions-button{
+  display: none;
+}
+#cover::-webkit-media-controls-seek-back-button{
+  display: none;
+}
+
+
+video::-webkit-media-controls-panel {
+    width: inherit;
+    height: inherit;
+   background: none;
+    position: relative;
+    direction: ltr;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+    #back_player{
+      width:100%;
+      height:100%;
+   
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+    }
+    #title_video{
+      width: 95%;
+      height: 40px;
+      background: #252525;
+      border-radius: 5px;
+      border:2px solid #333;
+     display: flex;
+    }
+    #icon_logo{
+      width:16%;
+      height:100%;
+   background:#333;
+   
+      background-image: url("20220918_211318.png");
+      background-size: 28px 28px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    #search{
+      width: 82%;
+      height:100%;
+      background: none;
+      outline: none;
+      border:0px;
+      color:white;
+      font-size: 16px;
+      padding-left: 3%;
+    }
+    #top_back_player{
+      width:28%;
+      height:70px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    #img_player{
+      width: 35px;
+      height: 35px;
+      border-radius: 5px;
+      border:2px solid white;
+
+    }
+    #right_back_player{
+      width:30%;
+      height:95%;
+     
+     display: flex;
+     justify-content: flex-end;
+     flex-direction: column;
+     align-items: center;
+     margin-top: 10px;
+    }
+    #icon_download_video{
+      width: 45px;
+    margin-bottom: 20px;
+    
+      
+    }
+    </style>
+
+    <body>
+      
+      <br>
+ 
+    
+      <main id="main">
+        <div id="title_video">
+         
+          <input type="text" id="search" onchange="search()" placeholder="Link TikTok video">
+           <div id="icon_logo"></div>
+        </div>
+        <br>
+     <!--
+        <div id="back_video">
+          
+          <div id="back_player">
+            <div id="top_back_player">
+              <img id="img_player" src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/aaea6deb7bee034e11ef4e600f0d0c92~c5_300x300.jpeg?x-expires=1663336800&x-signature=vr1LY4f3rIs4GMFfp1Qb1CK0oOo%3D">
+            </div>
+            <div id="right_back_player">
+              <a id="download_video"  download>
+              <img id="icon_download_video" src="20220916_175240.png"/></a>
+                <img id="icon_download_video" src="20220916_175854.png"/>
+              
+            </div>
+          </div>
+          
+        <video poster="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/92956dc6f77042bcb0bc72ea142640f2_1651949055?x-expires=1663426800&x-signature=6f2V5pVbZf9xUJ%2FLQJNlqfVAFbY%3D&s=SEARCH&se=false&sh=&sc=dynamic_cover&l=202209161509060102171190320F2A6565"  id="cover" src="https://v39-us.tiktokcdn.com/12d4d08c83d2ed8d2b98a8221dca3568/63257017/video/tos/useast2a/tos-useast2a-ve-0068c004/04fc5638a614432ba2aa7a1a18d5a2a5/?a=1233&ch=0&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&cv=1&br=6510&bt=3255&cs=0&ds=6&ft=ApYasBnZqi2mo0PTmZOBkVQnNk6bHKJ&mime_type=video_mp4&qs=0&rc=OTUzaTxmaThlOTtoZjdoNEBpajNtdTc6Zmk2ZDMzNzczM0BiX2BhYy8xNS8xMzQ1LzVjYSNmbGhtcjRnLTFgLS1kMTZzcw%3D%3D&l=202209170058230102140290390A6D35E7&btag=80000&cc=8"></video>
+     </div>
+     
+  -->
+      </main>
+  
+  
+    </body>
+   
+</html>
+
+        
+  <script>
+ 
+
+  /*
+  document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === 'visible') {
+    document.getElementById("cover").play();
+  } else {
+   document.getElementById("cover").play();
+  }
+});
+*/
+  document.getElementById("download_video").href=document.getElementById("cover").src;
+function search(){
+  
+var search = document.getElementById("search").value;
+  var ul2 = "https://www.tikwm.com/api/feed/search?keywords="+ search +"count=20";
+  fetch(ul2).then(response=> {return response.json()}).then(data=>{
+    console.log(data);
+    getData(data);
+    var elem = document.body;
+/*
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari 
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { 
+    elem.msRequestFullscreen();
+  }
+  */
+  
+  }).catch(error=>{
+    
+  });
+}
+
+  function getData(data){
+ 
+    for(var i =0; i<30;i++){
+    
+      document.getElementById("main").innerHTML +="<div id='back_video'><div id='back_player'><div id='top_back_player'><img id='img_player' src="+data.data.videos[i].author.avatar+"></div><div id='right_back_player'><img id='icon_download_video' src='20220916_175240.png'/><img id='icon_download_video' src='20220916_175854.png'/></div></div><video controlslist='nodownload noplaybackrate' autoplay   poster="+data.data.videos[i].cover+" loop  id='cover' onplay=''  onclick='this.controls=true; this.src=`"+data.data.videos[i].play+"`'></video></div>";
+      
+    
+    }
+    
+  }
+  
+
+  </script>
+  
+  
+    </body>
+   
+</html>
+<!--
+https://www.tiktok.com/@mizoxfaidy1/video/7140997793694485765?_t=8VZp71VumOc&_r=1
+
+https://www.tiktok.com/@israyil___474/video/7137675916989238529
+
+https://www.tiktok.com/@mr_youness8/video/7139503022756859142?is_from_webapp=1&sender_device=mobile&sender_web_id=7126328456372110854
+Main
+
+https://www.tiktok.com/@frita360/video/7136624299556785414?is_from_webapp=1&sender_device=mobile&sender_web_id=7126328456372110854
+
+https://vm.tiktok.com/ZMNEVLePC?_r=1&u_code=0&preview_pb=0&language=en&_d=e3kahbg5845mf6&share_item_id=7131799526599363845&source=h5_m&timestamp=1662858419&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7141755829262583557&share_link_id=f463d2f1-a8e2-4c9a-9a6e-8a28221ab6ff&share_app_id=1233&ugbiz_name=Main
+
+https://www.tiktok.com/@kambouch/video/7141013750018034949?_t=8?_r=1&u_code=0&preview_pb=0&language=en&_d=e3kahbg5845mf6&share_item_id=7131799526599363845&source=h5_m&timestamp=1662858419&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7141755829262583557&share_link_id=f463d2f1-a8e2-4c9a-9a6e-8a28221ab6ff&share_app_id=1233&ugbiz_name=Main
+
+https://www.tiktok.com/@ahmedjabrani/video/7120539108685974789?is_f?_r=1&u_code=0&preview_pb=0&language=en&_d=e3kahbg5845mf6&share_item_id=7131799526599363845&source=h5_m&timestamp=1662858419&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7141755829262583557&share_link_id=f463d2f1-a8e2-4c9a-9a6e-8a28221ab6ff&share_app_id=1233&ugbiz_name=Main
+
+https://www.tiktok.com/@docteurbenyachou/video/7139240022137441542?_r=1&u_code=0&preview_pb=0&language=en&_d=e3kahbg5845mf6&share_item_id=7131799526599363845&source=h5_m&timestamp=1662858419&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7141755829262583557&share_link_id=f463d2f1-a8e2-4c9a-9a6e-8a28221ab6ff&share_app_id=1233&ugbiz_name=Main
+
+https://www.tiktok.com/@docteurbenyachou/video/7139240022137441542?_r=1&u_code=0&preview_pb=0&language=en&_d=e3kahbg5845mf6&share_item_id=7131799526599363845&source=h5_m&timestamp=1662858419&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7141755829262583557&share_link_id=f463d2f1-a8e2-4c9a-9a6e-8a28221ab6f
+
+
