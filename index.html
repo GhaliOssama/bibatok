@@ -226,6 +226,7 @@ video::-webkit-media-controls-panel {
 */
   document.getElementById("download_video").href=document.getElementById("cover").src;
 function search(){
+/*
   var elem = document.body;
 
   if (elem.requestFullscreen) {
@@ -235,6 +236,7 @@ function search(){
   } else if (elem.msRequestFullscreen) { 
     elem.msRequestFullscreen();
   }
+*/
 var search = document.getElementById("search").value;
   var ul2 = "https://www.tikwm.com/api/feed/search?keywords="+ search +"count=20";
   fetch(ul2).then(response=> {return response.json()}).then(data=>{
