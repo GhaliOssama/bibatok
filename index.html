@@ -45,13 +45,15 @@
       justify-content: center;
       flex-direction: column;
       align-items: center;
+      position: relative;;
     }
     #cover{
       width: 100%;
-      height: 510px;
-    max-height: 510px;
+      min-height: 350px;
+    
   background:black;
   outline: none;
+ 
     }
    
 #cover::-webkit-media-controls-timeline {
@@ -101,7 +103,8 @@ video::-webkit-media-controls-panel {
     #back_player{
       width:100%;
       height:100%;
-   
+  
+ 
       position: absolute;
       display: flex;
       justify-content: space-between;
@@ -124,6 +127,9 @@ video::-webkit-media-controls-panel {
       background-repeat: no-repeat;
       background-position: center;
     }
+    #icon_logo::active{
+      background: red;
+    }
     #search{
       width: 82%;
       height:100%;
@@ -135,7 +141,7 @@ video::-webkit-media-controls-panel {
       padding-left: 3%;
     }
     #top_back_player{
-      width:28%;
+      width:22%;
       height:70px;
       display: flex;
       justify-content: center;
@@ -150,7 +156,7 @@ video::-webkit-media-controls-panel {
 
     }
     #right_back_player{
-      width:30%;
+      width:22%;
       height:95%;
      
      display: flex;
@@ -220,22 +226,22 @@ video::-webkit-media-controls-panel {
 */
   document.getElementById("download_video").href=document.getElementById("cover").src;
 function search(){
-  
+  var elem = document.body;
+
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { 
+    elem.msRequestFullscreen();
+  }
 var search = document.getElementById("search").value;
   var ul2 = "https://www.tikwm.com/api/feed/search?keywords="+ search +"count=20";
   fetch(ul2).then(response=> {return response.json()}).then(data=>{
     console.log(data);
     getData(data);
-    var elem = document.body;
-/*
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.webkitRequestFullscreen) { /* Safari 
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { 
-    elem.msRequestFullscreen();
-  }
-  */
+    
+  
   
   }).catch(error=>{
     
