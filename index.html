@@ -52,11 +52,11 @@
       align-items: center;
     }
     #back_video{
-      width: 95%;
+      width: 97%;
       height: auto;
       background:#404040;
-      box-shadow: 0px 0px 3px 1px #121212;
-      border-radius: 5px;
+      
+      border-radius: 0px;
       padding:8px 0px 8px 0px;
       border:1px solid #606060;
      margin-bottom: 10px;
@@ -68,8 +68,8 @@
     }
     #cover{
       width: 100%;
-      min-height: 300px;
-  background:black;
+      min-height: 350px;
+  background: black;
   outline: none;
  
  
@@ -105,8 +105,9 @@ video::-webkit-media-controls-current-time-display{
 }
 #cover::-webkit-media-controls-mute-button{
 position: fixed;
+left:82%;
 top:0%;
-transform: scale(1.3);
+transform: scale(1.4);
  
 }
 
@@ -142,26 +143,27 @@ video::-webkit-media-controls-panel {
     #back_search{
       width:100%;
       height:50px;
-      background:#202020;
       display: flex;
       justify-content: center;
       flex-direction: column;
       align-items: center;
-     
+    
       z-index: 11111;
     }
     #title_video{
       width: 95%;
       height: 40px;
-      background: #191919;
-      border-radius: 5px;
-      border:2px solid #333;
+      background: #181818;
+      border-radius: 10px;
+      border:2px solid #404040;
      display: flex;
+ 
     }
     #icon_logo{
       width:16%;
       height:100%;
-   background:#333;
+      border-radius: 0px 5px 5px 0px;
+   background:#404040;
    display: flex;
    justify-content: center;
    flex-direction: column;
@@ -283,15 +285,76 @@ video::-webkit-media-controls-panel {
   stroke-width: 1;
   background: none;
 }
-
+#back_logo{
+  width:100%;
+  height:40px;
+  display:flex;
+  justify-content: flex-start;
+ 
+}
+#logo{
+  width:70px;
+  height:100%;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 22px;
+  font-family:Arial;
+color: #25F4EE;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+#logo_2{
+  width:70px;
+  height:100%;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 22px;
+  font-family:Arial;
+color: #FE2C55;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+#back_foryou{
+  width:100%;
+  height:55px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  
+ 
+}
+#text_foryou{
+  width:30%;
+  height:33px;
+  background:#333;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+ font-size: 15px;
+ font-weight: 600;
+ font-family: Arial;
+ color: white;
+ margin-left: 10px;
+}
     </style>
 
     <body onscroll="scroll()">
       
       
     <section id="section">
+      <div id="back_logo">
+        <div id="logo">biba</div>
+      <div id="logo_2">Tik</div>
+      </div>
       <main id="main">
-        <br>
+     
         <div id="back_search">
         <div id="title_video">
          
@@ -306,7 +369,10 @@ video::-webkit-media-controls-panel {
            </div>
         </div>
         </div>
-        <br>
+        <article id="back_foryou">
+          <div id="text_foryou">For You</div>
+        </article>
+    
  
         <div id="back_video">
           
@@ -340,9 +406,9 @@ video::-webkit-media-controls-panel {
             </div>
           </div>
           
-        <video controls poster="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/92956dc6f77042bcb0bc72ea142640f2_1651949055?x-expires=1663426800&x-signature=6f2V5pVbZf9xUJ%2FLQJNlqfVAFbY%3D&s=SEARCH&se=false&sh=&sc=dynamic_cover&l=202209161509060102171190320F2A6565"  id="cover" src="https://v16m-default.akamaized.net/2f1ef6dfd6ca5768d571fd7d8f719738/632ba192/video/tos/useast2a/tos-useast2a-ve-0068c002/9542be0a9f364cdbbb5a4453be2f67ef/?a=0&ch=0&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&cv=1&br=4070&bt=2035&cs=0&ds=6&ft=ArCXsBnZqi2mo0PnTv~BkVQnNk6bHKJ&mime_type=video_mp4&qs=0&rc=Zzw2OjU2OGY5N2g5Zmg3ZUBpanQ1ajQ6ZjtoZjMzNzczM0BjMWNiXzA1NjAxNTYuL14zYSMwcmdfcjRvZWlgLS1kMTZzcw%3D%3D&l=2022092122430101021711915105538378&btag=80000"></video>
+        <video controls poster="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/92956dc6f77042bcb0bc72ea142640f2_1651949055?x-expires=1663426800&x-signature=6f2V5pVbZf9xUJ%2FLQJNlqfVAFbY%3D&s=SEARCH&se=false&sh=&sc=dynamic_cover&l=202209161509060102171190320F2A6565"  id="cover" src="https://v39-us.tiktokcdn.com/7dc2216045e51c619900b0c0d66516b1/63303fcc/video/tos/alisg/tos-alisg-pve-0037c001/aecf2851ac51489081bd78ac1c88f8f4/?a=1233&ch=0&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&cv=1&br=2012&bt=1006&cs=0&ds=6&ft=ApYasBnZqi2mo0PEfz4BkVQnNk6bHKJ&mime_type=video_mp4&qs=0&rc=OGdpOGY6PDc2ODc5PGU2NUBpamk3ZGQ6Zm1qOzMzODczNEBeNTNfXzI2NS4xMS41Yi01YSMzMS1lcjQwc15gLS1kMS1zcw%3D%3D&l=2022092510462401019216101514D6C9D9&btag=80000&cc=8"></video>
      </div>
-  
+ 
       </main>
   </section>
   
@@ -384,6 +450,7 @@ function search(){
   } else if (elem.msRequestFullscreen) { 
     elem.msRequestFullscreen();
   }
+  
 var search = document.getElementById("search").value;
 fetch("https://ipinfo.io/json?token=ad17d4aadec176").then(response=> {return response.json()}).then(you=>{
    
@@ -394,7 +461,7 @@ fetch("https://ipinfo.io/json?token=ad17d4aadec176").then(response=> {return res
   function getip(eve){
     console.log(eve);
   
-  var ul2 = "https://www.tikwm.com/api/feed/search?keywords="+search+"&count=30& cursor=10";
+  var ul2 = "https://www.tikwm.com/api/feed/search?keywords="+search+"&count=5& cursor=1";
   fetch(ul2).then(response=> {return response.json()}).then(data=>{
     console.log(data);
     getData(data);
@@ -406,26 +473,17 @@ fetch("https://ipinfo.io/json?token=ad17d4aadec176").then(response=> {return res
 }
   function getData(data){
  
-    for(var i =0; i<20;i++){
+    for(var i =0; i<30;i++){
      var like_count=new Intl.NumberFormat( 'en-US', { maximumFractionDigits: 1,notation: "compact" , compactDisplay: "short" }).format(data.data.videos[i].digg_count);
       var play_count=new Intl.NumberFormat( 'en-US', { maximumFractionDigits: 1,notation: "compact" , compactDisplay: "short" }).format(data.data.videos[i].play_count);
 var comment_count=new Intl.NumberFormat( 'en-US', { maximumFractionDigits: 1,notation: "compact" , compactDisplay: "short" }).format(data.data.videos[i].comment_count);
      
      
-      document.getElementById("main").innerHTML +="<div style='max-height:"+ window.innerHeight+"px'  id='back_video'><div id='back_player'><div id='right_back_player'><img id='img_player' src='"+data.data.videos[i].author.avatar +"'><div id='bottom_right_player'><img id='icon_download_video'src='20220916_175240.png'/></a><img id='icon_download_video' src='20220916_175854.png'/></div></div><div id='left_back_player'><div id='bottom_left_player'>          <div id='back_icon_count'><img id='icon_play' src='20220924_163043.png'/><div id='count_video'>"+like_count+"</div></div><div id='back_icon_count'><img id='icon_play'src='20220924_171919.png'/> <div id='count_video'>"+play_count+"</div></div><div id='back_icon_count'><img id='icon_play'src='20220924_172119.png'/> <div id='count_video'>"+comment_count+"</div></div></div></div></div><video controlslist='nodownload noplaybackrate' autoplay   poster="+data.data.videos[i].cover+" loop  id='cover' onplay=''  onclick='this.controls=true; this.src=`"+data.data.videos[i].play+"`'></video></div>";
+      document.getElementById("main").innerHTML +="<div   id='back_video'><div id='back_player'><div id='right_back_player'><img id='img_player' src='"+data.data.videos[i].author.avatar +"'><div id='bottom_right_player'><img id='icon_download_video'src='20220916_175240.png'/></a><img id='icon_download_video' src='20220916_175854.png'/></div></div><div id='left_back_player'><div id='bottom_left_player'>          <div id='back_icon_count'><img id='icon_play' src='20220924_163043.png'/><div id='count_video'>"+like_count+"</div></div><div id='back_icon_count'><img id='icon_play'src='20220924_171919.png'/> <div id='count_video'>"+play_count+"</div></div><div id='back_icon_count'><img id='icon_play'src='20220924_172119.png'/> <div id='count_video'>"+comment_count+"</div></div></div></div></div><video controlslist='nodownload noplaybackrate' autoplay   poster="+data.data.videos[i].cover+"   id='cover' onclick='this.controls=true; this.src=`"+data.data.videos[i].play+"`'></video></div>";
         
-         
     
     }
  
-  }
- 
-  
-  function scroll(){
-
-  if (document.body.scrollTop + document.body.clientHeight >= document.body.scrollHeight) {
-    console.log(document.body.scrollHeight);
-  }
   }
   
   </script>
