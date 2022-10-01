@@ -16,9 +16,10 @@
         <link rel="manifest" href="/manifest.json">
         <title>Audio Visualization + Picture-in-Picture</title>
     </head>
+   
     <style>
     body{
-      background:#202020;
+      background:#212121;
       width:100%;
       height:100%;
       overflow: auto;
@@ -39,12 +40,12 @@
     #section{
       width:100%;
       height:100%;
-  background:#202020;
+  background:#212121;
   overflow: auto;
 }
     #main{
       width:100%;
-      background: #202020;
+      background: #212121;
       overflow: auto;
       display: flex;
       justify-content: center;
@@ -52,11 +53,11 @@
       align-items: center;
     }
     #back_video{
-      width: 97%;
+      width: 98%;
       height: auto;
       background:#404040;
       
-      border-radius: 0px;
+      border-radius: 5px;
       padding:8px 0px 8px 0px;
       border:1px solid #606060;
      margin-bottom: 10px;
@@ -105,7 +106,7 @@ video::-webkit-media-controls-current-time-display{
 }
 #cover::-webkit-media-controls-mute-button{
 position: fixed;
-left:82%;
+right:82%;
 top:0%;
 transform: scale(1.4);
  
@@ -162,7 +163,7 @@ video::-webkit-media-controls-panel {
     #icon_logo{
       width:16%;
       height:100%;
-      border-radius: 0px 5px 5px 0px;
+      border-radius: 0px 6px 5px 0px;
    background:#404040;
    display: flex;
    justify-content: center;
@@ -183,16 +184,16 @@ video::-webkit-media-controls-panel {
     #top_back_player{
       width:100%;
       height:70px;
-  
       display: flex;
       justify-content: center;
       flex-direction: column;
       align-items: center;
+     
     }
     #img_player{
-      width: 40px;
-      height:  40px;
-      border-radius:5px;
+      width: 50px;
+      height:  50px;
+      border-radius:50%;
       border:2px solid white;
      margin-top: 10px;
     }
@@ -223,11 +224,11 @@ video::-webkit-media-controls-panel {
      justify-content: center;
      flex-direction: column;
      align-items: center;
-  
     }
     #icon_play{
       width:45px;
    filter: drop-shadow(0 0 0.5px grey);
+   
     }
    #count_video{
      width:100%;
@@ -246,7 +247,7 @@ video::-webkit-media-controls-panel {
       height:100%;
   
      display: flex;
-     justify-content: space-between;
+     justify-content: flex-end;
      flex-direction: column;
      align-items: center;
   
@@ -261,8 +262,8 @@ video::-webkit-media-controls-panel {
     z-index: 1111;
     }
     #icon_download_video{
-      width: 45px;
-    margin-bottom: 25px;
+      width: 50px;
+    margin-bottom: 35px;
     
       
     }
@@ -329,10 +330,10 @@ color: #FE2C55;
  
 }
 #text_foryou{
-  width:30%;
-  height:33px;
+  width:90px;
+  height:35px;
   background:#333;
-  border-radius: 2px;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -380,16 +381,19 @@ color: #FE2C55;
             
             <div id="right_back_player">
               
-           <img id="img_player" src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/aaea6deb7bee034e11ef4e600f0d0c92~c5_300x300.jpeg?x-expires=1663336800&x-signature=vr1LY4f3rIs4GMFfp1Qb1CK0oOo%3D">
+
            <div id="bottom_right_player">
              
               <img id="icon_download_video" src="20220916_175240.png"/>
                 <img id="icon_download_video" src="20220916_175854.png"/>
 </div>
             </div>
-                       <div id="left_back_player">
+    <div id="left_back_player">
              
-              <div id="bottom_left_player">
+        <div id="bottom_left_player">
+     <div id="back_icon_count">
+      <img id="img_player" src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/aaea6deb7bee034e11ef4e600f0d0c92~c5_300x300.jpeg?x-expires=1663336800&x-signature=vr1LY4f3rIs4GMFfp1Qb1CK0oOo%3D">
+      </div>
           <div id="back_icon_count">
                <img id="icon_play" src="20220924_163043.png"/>
                <div id="count_video">8540</div>
@@ -479,7 +483,7 @@ fetch("https://ipinfo.io/json?token=ad17d4aadec176").then(response=> {return res
 var comment_count=new Intl.NumberFormat( 'en-US', { maximumFractionDigits: 1,notation: "compact" , compactDisplay: "short" }).format(data.data.videos[i].comment_count);
      
      
-      document.getElementById("main").innerHTML +="<div   id='back_video'><div id='back_player'><div id='right_back_player'><img id='img_player' src='"+data.data.videos[i].author.avatar +"'><div id='bottom_right_player'><img id='icon_download_video'src='20220916_175240.png'/></a><img id='icon_download_video' src='20220916_175854.png'/></div></div><div id='left_back_player'><div id='bottom_left_player'>          <div id='back_icon_count'><img id='icon_play' src='20220924_163043.png'/><div id='count_video'>"+like_count+"</div></div><div id='back_icon_count'><img id='icon_play'src='20220924_171919.png'/> <div id='count_video'>"+play_count+"</div></div><div id='back_icon_count'><img id='icon_play'src='20220924_172119.png'/> <div id='count_video'>"+comment_count+"</div></div></div></div></div><video controlslist='nodownload noplaybackrate' autoplay   poster="+data.data.videos[i].cover+"   id='cover' onclick='this.controls=true; this.src=`"+data.data.videos[i].play+"`'></video></div>";
+      document.getElementById("main").innerHTML +="<div   id='back_video'><div id='back_player'><div id='right_back_player'><div id='bottom_right_player'><img id='icon_download_video'src='20220916_175240.png'/></a><img id='icon_download_video' src='20220916_175854.png'/></div></div><div id='left_back_player'><div id='bottom_left_player'><div id='back_icon_count'><img id='img_player' src='"+data.data.videos[i].author.avatar +"'></div> <div id='back_icon_count'><img id='icon_play' src='20220924_163043.png'/><div id='count_video'>"+like_count+"</div></div><div id='back_icon_count'><img id='icon_play'src='20220924_171919.png'/> <div id='count_video'>"+play_count+"</div></div><div id='back_icon_count'><img id='icon_play'src='20220924_172119.png'/> <div id='count_video'>"+comment_count+"</div></div></div></div></div><video controlslist='nodownload noplaybackrate' autoplay   poster="+data.data.videos[i].cover+"   id='cover' onclick='this.controls=true; this.src=`"+data.data.videos[i].play+"`'></video></div>";
         
     
     }
