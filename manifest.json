@@ -1,0 +1,27 @@
+{
+  "name": "BibaTok",
+  "short_name": "BibaTok",
+  "description":"Download TikTok Video without watermark "
+  "icons": [
+    {
+      "src": "images/logo.png",
+      "sizes": "70x70",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo.png",
+      "sizes": "150x150",
+      "type": "image/png"
+    }
+  ],
+  "lang": "en-US",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "theme_color": "black"
+}
