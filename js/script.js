@@ -82,17 +82,15 @@ var svg_download ='<svg  id="icon_download_video" version="1.0" xmlns="http://ww
 
  
     var svg_comments ='<svg version="1.0" xmlns="http://www.w3.org/2000/svg"width="50px" height="50px" viewBox="0 0 1280.000000 1280.000000"preserveAspectRatio="xMidYMid meet"><g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"fill="white" stroke="none"><path d="M6170 10889 c-321 -31 -481 -53 -662 -90 -56 -12 -114 -24 -128 -26-128 -26 -494 -132 -565 -163 -11 -5 -42 -16 -68 -25 -195 -63 -574 -242 -829 -391 -215 -126 -505 -334 -698 -502 -100 -88 -381 -369 -461 -463 -481 -561 -807 -1223 -934 -1899 -85 -453 -94 -784 -35 -1276 26 -214 126 -617 201 -809 17 -44 37 -99 45 -122 14 -42 64 -152 130 -289 54 -113 148 -276 251 -436 l95 -147 -11 -113 c-15 -148 -28 -259 -40 -333 -6 -33 -17 -107 -26 -165 -43 -280 -183 -804 -246 -922 -5 -10 -9 -23 -9 -29 0 -6 -25 -63 -55 -126 -30 -64 -55 -117 -55 -119 0 -18 -155 -248 -215 -319 -110 -130 -124 -168 -89 -238 43 -85 108 -111 217 -88 23 5 74 14 112 21 284 48 632 127 970 220 189 52 634 196 710 230 22 10 121 50 220 90 99 40 273 121 388 179 227 115 208 111 302 71 93 -39 353 -123 495 -160 47 -12 99 -26 115 -31 89 -26 389 -81 535 -99 294 -37 388 -42 715 -43 318 0 397 4 645 34 801 97 1536 365 2198 802 656 433 1192 1027 1523 1687 68 137 87 177 132 285 28 68 89 232 106 285 6 19 18 58 27 85 32 101 98 382 111 470 2 17 8 55 13 85 47 283 56 718 20 1010 -69 556 -231 1050 -497 1518 -577 1016 -1570 1785 -2773 2146 -351 105 -680 165 -1144 206 -129 12 -614 11 -736 -1z m-1680 -3688 c298 -96 480 -364 455 -671 -14 -155 -82 -297 -197 -406 -82 -77 -147 -115 -252 -150 -108 -35 -267 -36 -371 -2 -108 35 -193 86 -266 160 -105 104 -159 213 -185 367 -15 91 -8 169 23 281 48 171 227 358 396 412 132 42 282 45 397 9z m2250 -4 c219 -71 374 -238 430 -463 46 -184 0 -397 -118 -544 -47 -58 -47 -58 -111 -109 -118 -92 -237 -132 -393 -132 -59 0 -123 5 -141 10 -17 6 -50 17 -72 24 -133 42 -281 167 -347 292 -57 110 -78 195 -78 316 0 179 62 322 195 454 168 167 411 225 635 152z m2230 4 c397 -127 574 -563 377 -928 -41 -77 -175 -210 -252 -249 -109 -57 -186 -75 -309 -75 -88 0 -126 5 -181 23 -112 37 -193 86 -273 167 -204 206 -243 512 -98 771 61 110 223 245 339 282 132 42 282 45 397 9z"/> </g></svg>';
-    var tags = ["fyp","funnyvideos","comedy","memes","amazing","respect","foryoupage","videos"];
+    var tags = ["funnyvideos","comedy","memes","amazing","respect","amazing videos","videos"];
     var cursor =[0,10,30,40,50,60,70,80,90,100];
   var tag_random = tags[Math.floor((Math.random()*tags.length))];
   var cursor_random = cursor[Math.floor((Math.random()*cursor.length))];
-console.log(tag_random);
-console.log(cursor_random);
+
     function getfetch(){
   var url= "https://www.tikwm.com/api/feed/search?keywords="+tag_random+"&count=10&cursor="+cursor_random+"";
       
-  fetch(url).then(response=> {return response.json()}).then(data=>{
-     console.log(data);
+  fetch(url).then(response=> {return response.json()}).then(da
     getvideos(data);
     getswipe(data);
     document.getElementById("skeleton_videos_foryou").style.display="none";
@@ -122,7 +120,7 @@ allVideoDivs.forEach((videoDiv, i) => {
 
   
  var cover_media = data.data.videos[i].cover;
-  console.log(cover_media);
+  
   var title_media = data.data.videos[i].title;
    ;
   function funplay(){
@@ -227,7 +225,7 @@ function remoplay(){
   
   fetch("https://www.tikwm.com/api/?url="+search+"").then(response=> {return response.json()}).then(data=>{
     window.scroll(0,0);
-    console.log(data);
+ 
     document.getElementById("back_player_video").style.display="flex";
     
     document.getElementById("avatar_video").src=data.data.author.avatar;
