@@ -1,7 +1,6 @@
 {
   "name": "BibaTok",
   "short_name": "BibaTok",
-  "description":"Download TikTok Video without watermark "
   "icons": [
     {
       "src": "images/logo.png",
