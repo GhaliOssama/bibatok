@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js', { scope: '/' })
+    navigator.serviceWorker.register('/serviceWorker.js', { scope: '/' })
       .then(reg => {
 
         reg.update();
