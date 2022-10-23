@@ -98,16 +98,19 @@ console.log(cursor_random);
     document.getElementById("skeleton_videos_foryou").style.display="none";
    
   }).catch(err =>
-     reloadpage()
+  reloadpage(err)
    );
 }
 
  
    getfetch();
-    function reloadpage(){
+    function reloadpage(err){
+      if(err.message ==="Cannot read properties of undefined (reading 'videos')"){
        setTimeout(()=>{
-    location.reload()
-  },5000);
+        location.reload();
+       },5000);
+      }
+       
      }
        
     
