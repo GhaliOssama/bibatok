@@ -1,0 +1,51 @@
+{
+  "name": "BibaTok",
+  "short_name": "BibaTok",
+  "theme_color": "#202020",
+  "background_color": "#202020",
+  "display": "standalone",
+  "Scope": "/",
+  "start_url": "index.html",
+  "icons": [
+    {
+      "src": "images/logo.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo1.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo2.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo3.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo4.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo5.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo6.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo7.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
