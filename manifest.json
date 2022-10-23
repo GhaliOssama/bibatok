@@ -1,8 +1,8 @@
 {
   "name": "BibaTok",
   "short_name": "BibaTok",
-  "theme_color": "#202020",
-  "background_color": "#202020",
+  "theme_color": "black",
+  "background_color": "black",
   "display": "standalone",
   "Scope": "/",
   "start_url": "index.html",
