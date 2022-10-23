@@ -5,7 +5,6 @@ const includeToCache = [
   '/images/logo.png',
   '/css/styles.css',
   '/js/main.js',
-  '/js/script.js',
   '/images/download.svg'
 ];
 
