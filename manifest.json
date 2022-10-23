@@ -1,9 +1,9 @@
 {
-  "name": "BibaTok",
-  "short_name": "BibaTok",
+  "name": "Soccer Hero",
+  "short_name": "Soccer Hero",
   "icons": [
     {
-      "src": "images/logo.png",
+      "src": "logo.jpg",
       "sizes": "70x70",
       "type": "image/png"
     },
