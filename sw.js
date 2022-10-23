@@ -1,26 +1,47 @@
-var cacheName = 'bibatok';
-var filesToCache = [
+const cacheName = 'bibatok';
+const includeToCache = [
   '/',
   '/index.html',
-  '/css/style.css',
-  '/js/main.js'
+  '/images/logo.png',
+  '/css/styles.css',
+  '/js/main.js',
+  '/js/script.js',
+  '/images/download.svg'
 ];
 
 /* Start the service worker and cache all of the app's content */
-self.addEventListener('install', function(e) {
+self.addEventListener('install', e => {
+
+  self.skipWaiting();
+
   e.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      return cache.addAll(filesToCache);
+    caches.open(cacheName).then(cache => {
+      return cache.addAll(includeToCache);
     })
   );
-  self.skipWaiting();
 });
 
 /* Serve cached content when offline */
-self.addEventListener('fetch', function(e) {
+self.addEventListener('fetch', e => {
   e.respondWith(
-    caches.match(e.request).then(function(response) {
+    caches.match(e.request).then(response => {
       return response || fetch(e.request);
+    })
+  );
+});
+
+self.addEventListener('activate', event => {
+  // delete any caches that aren't in cacheName
+  // which will get rid of version
+  event.waitUntil(
+    caches.keys().then(keys => Promise.all(
+      keys.map(key => {
+        if (cacheName !== key) {
+          return caches.delete(key);
+        }
+      })
+    )).then(() => {
+      console.log(cacheName + ' now ready to handle fetches!');
     })
   );
 });
