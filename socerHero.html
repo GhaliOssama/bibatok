@@ -1,0 +1,782 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#181818">
+    	<link rel="manifest" href="manifest.json"/>
+    	  <link rel="icon" href="logo.png" type="image/x-icon" />
+<title>Air Hockey</title>
+<style>
+  * { padding: 0; margin: 0;
+  overscroll-behavior: none;
+        -moz-user-select: none;
+   -webkit-user-select: none;
+    
+  }
+  body{
+    background:black;
+  }
+    canvas { 
+         display: block; 
+         margin: 0px auto;
+          position: relative;
+          z-index: 11111;
+   
+        }
+#header{
+  width:100%;
+  height:100%;
+  bottom:0%;
+  position: fixed;
+  z-index: 111111;
+ 
+  pointer-events: none;
+ 
+}
+     #flag_computer,#flag_computer2{
+       width: 110px;
+       height:110px;
+     position: relative;
+     top:0px;
+  justify-content: center;
+border-radius: 50%;
+  align-items: center;
+
+
+     }
+      #flag{
+       width: 200px;
+       height:200px;
+       border-radius: 50%;
+      
+  justify-content: center;
+  align-items: center;
+  
+  position: relative;
+  top:50px;
+  
+  
+     }
+     @keyframes aim{
+       0%{
+         
+       }
+       50%{
+         transform: rotate(180deg);
+       }
+       
+       75%{
+transform: rotate(220deg);
+       }
+       100%{
+         transform: rotat(0deg);
+       }
+     }
+     #img_computer{
+       width:100%;
+       height:100%;
+       border-radius: 50%;
+      
+     }
+   #img_2{
+       width:100%;
+       height:100%;
+       border-radius: 50%;
+     display: none;
+     }
+     #section{
+         width: 98%;
+         height: 99%;
+         background-color: black;
+         position: fixed;
+         display: flex;
+         justify-content: space-between;
+         left:1%;
+         top:0.5%;
+      
+     }
+     #left_section{
+         width: 30%;
+         height: 100%;
+         display: flex;
+         flex-direction: column;
+        justify-content: space-between;
+        z-index: 1111;
+     }
+     #top_border_left_section{
+         width: 100%;
+         height: 7px;
+         background:white;
+         border:3px solid red;
+         box-shadow: 0px 0px 5px 2px #FF0000;
+         border-radius: 50px;
+
+     }
+     #left_border_left_section{
+         width: 7px;
+         height: 95%;
+         background-color: white;
+        border:3px solid red;
+         box-shadow: 0px 0px 5px 2px #FF0000;
+         border-radius: 50px;
+  
+     }
+     .classname{
+     -webkit-animation-name: anim;
+  -webkit-animation-duration: .3s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+
+     }
+     @keyframes anim {
+       0%{
+         transform: scaleX(1.5);
+       }
+       85%,100%{
+         transform: scaleX(1);
+       }
+     }
+     
+      
+     #bottom_border_left_section{
+         width: 100%;
+         height: 7px;
+         background-color: white;
+         border:3px solid red;
+         box-shadow: 0px 0px 5px 2px #FF0000;
+         border-radius: 50px;
+         
+     }
+     #center_section{
+         width: 38%;
+         height: 100%;
+         display: flex;
+         justify-content: space-between;
+         flex-direction: column;
+         align-items: center;
+     }
+   #top_center_section{
+       width: 97%;
+       height: 13%;
+       border-left: 3px solid rgb(129,129,129);
+       border-bottom: 3px solid rgb(129,129,129);
+       border-right: 3px solid rgb(129,129,129);
+       border-radius: 0% 0% 50% 50%;
+       
+   }
+   #center_center_section{
+       width: 100%;
+       height: 20%;
+       display: flex;
+       justify-content: center;
+       flex-direction: column;
+       align-items: center;
+    
+  
+   }
+   #circle_nod_medio{
+     width: 95px;
+     height: 95px;
+     border: 3px solid rgb(129,129,129);
+     border-radius: 50%;
+   }
+#line_nod_medio{
+    width: 90%;
+    height: 3px;
+    background-color: rgb(129,129,129);
+    position: absolute;
+    margin: auto;
+}
+   #bottom_center_section{
+    width: 97%;
+       height: 13%;
+       border-left: 3px solid rgb(129,129,129);
+       border-top: 3px solid rgb(129,129,129);
+       border-right: 3px solid rgb(129,129,129);
+       border-radius: 50% 50% 0px 0px;
+     
+   }
+
+     #right_section{
+         width: 30%;
+         height: 100%;
+         display: flex;
+         flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+     }
+
+     #top_border_right_section{
+         width: 100%;
+         height: 7px;
+         background:white;
+         border:3px solid #41F401;
+         box-shadow: 0px 0px 5px 2px #41F401;
+         border-radius: 50px;
+     }
+     #left_border_right_section{
+         width: 7px;
+         height: 95%;
+         background:white;
+         border:3px solid #41F401;
+         box-shadow: 0px 0px 5px 2px #41F401;
+         border-radius: 50px;
+
+     }
+     #bottom_border_right_section{
+         width: 100%;
+         height: 7px;
+         background:white;
+         border:3px solid #41F401;
+         box-shadow: 0px 0px 5px 2px #41F401;
+         border-radius: 50px;
+     }
+ 
+ 
+     #sub{
+       width:100%;
+       height:50px;
+       background:grey;
+       position: fixed;
+      z-index: 1111111;
+      display: none;
+     }
+     #player_shadow{
+       width:35px;
+       height:35px;
+       background:white;
+       border:18px solid #41F401;
+       box-shadow: 0px 0px 15px 5px #41F401;
+       border-radius: 50%;
+       position: fixed;
+       
+     }
+     #player_shadow2{
+       width:35px;
+       height:35px;
+       background:white;
+       border:18px solid #0268FF;
+       box-shadow: 0px 0px 15px 5px #0268FF;
+       border-radius: 50%;
+       position: fixed;
+       top:32%;
+    
+       left:58%;
+     }
+     #computer_shadow{
+       width:35px;
+       height:35px;
+       background:white;
+       border:18px solid #FF0000;
+       box-shadow: 0px 0px 15px 5px #FF0000;
+       border-radius: 50%;
+       position: fixed;
+      
+     }
+     #computer_shadow:nth-child(2){
+       width:35px;
+       height:35px;
+       background:white;
+       border:18px solid #FF05A8;
+       box-shadow: 0px 0px 15px 5px #FF05A8;
+       border-radius: 50%;
+       position: fixed;
+       bottom:32%;
+       left:58%;
+     }
+     #puck{
+       width:40px;
+       height:40px;
+       background: yellow;
+       border-radius: 50%;
+       box-shadow: 0px 0px 15px 5px yellow;
+     position: fixed;
+     top:46%;
+     left:45%;
+     }
+</style>
+<body>
+
+ <div id="sub">
+   <form >
+   <input type="number" name="score">
+   <button type="submit">submit</button>
+</form>
+ </div>
+  <header id="header">
+        
+
+  <div id="computer_shadow"></div>
+  <!--
+<div id="computer_shadow"></div>
+
+  <div id="player_shadow2"></div>
+  -->
+  <div id="player_shadow"></div>
+  
+  <div id="puck"></div>
+ <!--
+  <div id="flag_computer">
+    <img src="brazil-1524451__480.webp" id="img_computer">
+  </div>
+  -->
+
+  <!--
+  <div id="flag_2">
+    <img src="Screenshot_20220221-092512~2.png" id="img">
+  </div>
+  <div id="flag">
+    <img src="FB_IMG_1640006146.jpg" id="img_2">
+  </div>
+  <div id="flag_2">
+    <img src="FB_IMG_1640006146.jpg" id="img">
+  </div>
+  <div id="flag">
+    <img src="FB_IMG_1645437542991.jpg" id="img_2">
+  </div>
+
+  <div id="flag_2">
+    <img src="Screenshot_20220221-093736~2.png" id="img">
+  </div>
+    
+  <div id="flag">
+    <img src="FB_IMG_1645437542991.jpg" id="img_2">
+  </div>
+ -->
+  </header>
+    <section id="section">
+
+      <article id="left_section">
+          <div id="top_border_left_section"></div>
+          <div id="left_border_left_section"></div>
+          <div id="bottom_border_left_section"></div>
+      </article>
+
+      <article id="center_section">
+          <div id="top_center_section"></div>
+          <div id="center_center_section">
+              <div id="circle_nod_medio"></div>
+              <div id="line_nod_medio"></div>
+          </div>
+          <div id="bottom_center_section"></div>
+      </article>
+
+      <article id="right_section">
+        <div id="top_border_right_section"></div>
+        <div id="left_border_right_section"></div>
+        <div id="bottom_border_right_section"></div>
+      </article>
+
+    </section>
+ 
+	<canvas id="canvas"></canvas>
+ 
+
+	<script>
+
+
+const audioElement = new Audio('intro.mp');
+	audioElement.play();
+	audioElement.loop="true";
+    var canvas = document.getElementById('canvas');
+    var windWidth = window.innerWidth;
+    var windHeight = window.innerHeight;
+    canvas.width = windWidth;
+    canvas.height = windHeight;
+    canvas.style.width = windWidth; 
+    canvas.style.height = windHeight; 
+    ctx = canvas.getContext('2d');
+    var gm = true;
+    var ball_speed = 10;
+    var xspeed = 0;
+    var yspeed = 0;
+    var com_score = 0;
+    var player_score = 0;
+    var x_min=30;
+    var x_max=460;
+    var y_min=30;
+    var y_max=600;
+    var time = 60;
+    var i = 60;
+    function tim(){
+    i--;
+    time = i;
+    if(time== 0){
+      location.reload();
+    }
+    }
+setInterval(()=>{
+  tim();
+},1000);
+    function draw_rect(x,y,w,h,b)
+    {
+        ctx.beginPath();
+        if(b)
+        {
+            ctx.strokeStyle = "red";
+            ctx.lineWidth = 0.1;
+        }
+        else
+        {
+            ctx.strokeStyle = "#101010";
+            ctx.lineWidth = 0.1;
+        }    
+        ctx.strokeRect(x,y,w,h);
+        ctx.closePath();
+    }  
+      
+    function draw_goal(x,y,r,s)
+    {
+        ctx.beginPath();
+        ctx.lineWidth=4;
+        if(s)
+          ctx.arc(x, y, r, 0, Math.PI, false);
+        else
+          ctx.arc(x, y, r, Math.PI, 0, false);
+
+        ctx.strokeStyle = "#1589FF";
+        ctx.stroke();
+        ctx.closePath();
+    }
+
+    function draw_circle(x,y,r,w)
+    {
+        ctx.beginPath();
+        ctx.lineWidth=w;
+        ctx.arc(x, y, r, 0, Math.PI*2, false);
+        ctx.strokeStyle = "#1589FF";
+        ctx.stroke();
+        ctx.closePath();
+    }
+
+    function draw_filled_circle(x,y,r,d)
+    {
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI*2);
+        if(d==1)
+        {
+         ctx.fillStyle = "black";
+         ctx.strokeStyle = "black";
+        }
+        else if(d==2)
+        {
+         ctx.fillStyle = "black";
+         ctx.strokeStyle = "black";
+        }
+        else
+        {
+         ctx.fillStyle = "yellow";
+         ctx.strokeStyle = "yellow";   
+        }    
+        
+        ctx.fill();
+        ctx.lineWidth = 3;
+        
+        ctx.stroke();
+        ctx.closePath();
+    }
+
+    function draw_board()
+    {
+        draw_rect(0,0,windWidth,windHeight,1);
+        draw_rect(0,0,windWidth,windHeight,0);
+        //draw_goal(260,30,70,1);
+        //draw_goal(260,30,150,1);
+        //draw_goal(260,630,70,0);
+        //draw_goal(260,630,150,0);
+        //draw_circle(260,330,40,4);
+        //draw_circle(260,330,5,4);
+        
+        ctx.beginPath();
+        ctx.moveTo(0, 330);
+        ctx.lineTo(490, 330);
+        ctx.stroke();
+        ctx.closePath();
+/*
+        ctx.beginPath();
+        ctx.moveTo(100, 5);
+        ctx.lineTo(220, 5);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = "blue";
+        ctx.stroke();
+        ctx.closePath();
+/*
+        ctx.beginPath();
+        ctx.moveTo(105, 635);
+        ctx.lineTo(260, 635);
+        ctx.strokeStyle = "red";
+        ctx.stroke();
+        ctx.closePath();
+*/
+        ctx.font = "25px Arial";
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "black";
+        ctx.strokeText(com_score,canvas.width-40,canvas.height/2-10);
+        ctx.strokeText(player_score,canvas.width-40,canvas.height/2+28);
+        ctx.font = "22px Arial";
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "black";
+    ctx.strokeText(time,25,canvas.height/2+28);
+    }
+console.log(ctx);
+    function distance(x1,y1,x2,y2)
+    {
+        var tempx = x2-x1;
+        var tempy = y2-y1;
+        tempx*=tempx;
+        tempy*=tempy;
+        return Math.sqrt(tempx+tempy);
+    }
+
+
+    var Mallet = function(x,y,r)
+    {
+
+        this.x = x;
+        this.y = y;
+        this.radius = r;
+    }
+    // Player's object
+    var pMallet = new Mallet(canvas.width/2,canvas.height-150,30);
+    
+    var cMallet = new Mallet(canvas.width/2,150,30);
+
+    // Ball class
+    var Ball = function (x,y,r) {
+        this.x = x;
+        this.y = y;
+        this.radius = r;
+    }
+    // ball object
+    var ball = new Ball(canvas.width/2,canvas.height/2,15); 
+
+
+    // function to control the mallet according to cursor
+
+  canvas.addEventListener("mousemove", mouseMoveHandler, false);
+    canvas.addEventListener("touchmove", touchMoveHandler, false);
+    function touchMoveHandler(e) {
+    var relativeX = e.changedTouches[0].clientX - canvas.offsetLeft;
+    var relativeY = e.changedTouches[0].clientY -canvas.offsetTop;
+    console.log(canvas.width);
+
+      if(relativeX > canvas.width/9 && relativeX < canvas.width -40){
+ 
+   console.log(e.touches[0])
+            pMallet.x = relativeX;
+           
+           }
+            
+  
+        //360
+        if(relativeY > canvas.height / 2 && relativeY < canvas.height-40){
+            pMallet.y = relativeY;
+
+        }
+     
+    }
+
+    function mouseMoveHandler(e) {
+    var relativeX = e.clientX - canvas.offsetLeft;
+    var relativeY = e.clientY -canvas.offsetTop;
+
+            pMallet.x = relativeX;
+  
+        //360
+            pMallet.y = relativeY;
+     
+    }
+
+   
+        function play()
+        {
+
+           ctx.clearRect(0, 0, canvas.width, canvas.height);
+           // draw draw the board
+           draw_board();
+           // drawing player's mallet
+           draw_filled_circle(pMallet.x,pMallet.y,pMallet.radius,1);   
+           // drawing computer's mallety
+           draw_filled_circle(cMallet.x,cMallet.y,cMallet.radius,2);   
+           // drawing the ball
+           draw_filled_circle(ball.x,ball.y,ball.radius,0);
+
+           // condition to counce the ball off the left-right walls
+           if(ball.x + xspeed+8 > canvas.width-ball.radius) {
+             xspeed *=-0.8;
+      
+             document.getElementById("left_border_right_section").classList.add("classname");
+             setTimeout(()=>{
+               
+         document.getElementById("left_border_right_section").classList.remove("classname");
+             },200);
+            }
+    if( ball.x + xspeed-8 < ball.radius) {
+             xspeed *=-0.8;
+      
+             document.getElementById("left_border_left_section").classList.add("classname");
+             setTimeout(()=>{
+               
+         document.getElementById("left_border_left_section").classList.remove("classname");
+             },500);
+            }
+           if(ball.x + xspeed > canvas.width-ball.radius+5 || ball.x + xspeed< ball.radius-5) {
+                 ball.x = canvas.width/2;
+                ball.y = canvas.height/2;
+                xspeed *=-0;
+                
+            }
+           
+           // condition to bounce the ball off the top-botom walls and goal logic
+           if(ball.x>100 && ball.x<220){
+            if(ball.y + yspeed > canvas.height+ball.radius+5){
+                console.log("Computer Score");
+                ball.x = canvas.width/2;
+                ball.y = canvas.height/2+100;
+                xspeed = 0;
+                yspeed = 0 ;
+                com_score = com_score + 1;
+              
+             audioElement.play();
+              setTimeout(()=>{
+                audioElement.pause();
+                audioElement.currentTime=0;
+              },3000);
+            }
+       
+            else if(ball.y + yspeed < ball.radius-5){
+                console.log("you Score");
+                ball.x = canvas.width/2;
+                ball.y = canvas.height/2-100;
+                xspeed = 0;
+                yspeed = 0;
+                player_score = player_score + 1; 
+                
+              audioElement.play();
+              setTimeout(()=>{
+                audioElement.pause();
+                audioElement.currentTime=0;
+              },3000);
+            }
+           
+           }
+           else{
+            if(ball.y + yspeed > canvas.height-ball.radius-8|| ball.y + yspeed  < ball.radius+8){
+                yspeed *= -0.8;
+              
+            }
+            else if(ball.y + yspeed > canvas.height-ball.radius+20 || ball.y + yspeed  < ball.radius-20){
+              ball.x = canvas.width/2;
+                ball.y = canvas.height/2;
+                
+            }
+            
+           }
+          
+        
+        var ed = false; // enemy difficulty
+        var er = 1;//Used in AI. This is so CPU doesn't just hit it down all the time.
+        var p2s;//The speed CPU moves side to side
+        if(ed){er=2;}//If hard, Make er larger so CPU hits it diagonally.
+
+   
+
+          if((Math.abs(xspeed)+Math.abs(yspeed))<10&&ball.y<=canvas.height/2){
+              if(ball.y-20>cMallet.y){
+                  cMallet.y+=2;
+                  
+              }
+              else{
+                  cMallet.y-=2;
+              }
+          }
+          else if(cMallet.y>100){
+                  cMallet.y-=2;
+          }
+          else if(cMallet.y<100){
+                  cMallet.y+=2;
+          }
+
+
+    //Make sure You or CPU doesn't go past the line or go off screen.
+   if(cMallet.x<x_min)
+      {cMallet.x=x_min+30;}
+    if(cMallet.x>x_max)
+      {cMallet.x=x_max+30;}
+    if(cMallet.y<y_min)
+      {cMallet.y=y_min+60;}
+    if(cMallet.y>y_max)
+      {cMallet.y=y_max;}
+    
+    //set CPU's speed depending on difficulty
+    if(ed){p2s = 5}
+    else{p2s=3;}
+    
+ 
+    //If the ball is behind CPU, it moves out of the way.
+    if(ball.y<cMallet.y&&ball.x>cMallet.x-30&&ball.x<cMallet.x+30){p2s = -2;}
+    //Make CPU move towards the ball's x coord
+    if(cMallet.x<ball.x+er){cMallet.x+=p2s;}if(cMallet.x>ball.x-er){cMallet.x-=p2s;}
+    
+           
+
+
+          var pDist = distance(pMallet.x,pMallet.y,ball.x,ball.y);
+          
+          var cDist = distance(cMallet.x,cMallet.y,ball.x,ball.y);          
+          
+
+          // Function to hit the ball for player
+          if(pDist<50)
+          {
+           /* console.log("Mallet x : "+pMallet.x+" y : "+pMallet.y);
+            console.log("Ball x : "+ball.x+" y : "+ball.y);
+            console.log("Distance is : "+dist);
+            console.log("dist<30"); */
+            var dx = ball.x - pMallet.x;
+            var dy = ball.y - pMallet.y;
+            //console.log("dx  : " + dx);
+            //console.log("dy  : " + dy);
+            dx/=30;
+            dy/=30;
+            xspeed = dx*ball_speed;
+            yspeed = dy*ball_speed;
+          }  
+
+          // Function to hit the ball when computer is playing
+          if(cDist<50)
+          {
+            var cdx = ball.x - cMallet.x;
+            var cdy = ball.y- cMallet.y;
+            cdx/=45;
+            cdy/=45;
+            xspeed = cdx*ball_speed;
+            yspeed = cdy*ball_speed;
+          }
+
+         // Adjustments in the x and y coordianate of  the ball
+           ball.x += xspeed;
+           ball.y += yspeed;
+
+           xspeed *=0.99;
+           yspeed *=0.99;
+         
+           
+           document.getElementById("player_shadow").style.left=pMallet.x-33+"px";
+           document.getElementById("player_shadow").style.top=pMallet.y-33+"px";
+           document.getElementById("computer_shadow").style.left=cMallet.x-33+"px";
+           document.getElementById("computer_shadow").style.top=cMallet.y-33+"px";
+document.getElementById("puck").style.left=ball.x-20+"px";
+           document.getElementById("puck").style.top=ball.y-20+"px";
+        }
+         
+        setInterval(play,25);   
+   
+    
+	</script>
+	    <script src="/script.js"></script>
+</body>
+</head>
+</html>
